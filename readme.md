@@ -1,5 +1,11 @@
-Usage
+Dow Jones Industrial Average Stocks
 =====
+
+## Installation
+npm install djia-list
+
+## Usage
+
 var djiaList = require('djia-list');  
 djiaList.fullList(callback);
 
@@ -10,8 +16,7 @@ That's it. It will return a JS object formatted:
 
 But with all 30 Dow ticker symbols
 
-Example
-========
+## Example
 
 This will grab stock quotes from Yahoo Finance for the entire Dow 30
 ```
@@ -32,3 +37,5 @@ var myCallback = function(stockList) {
 
 djiaList.fullList(myCallback);
 ```
+## Release History
+1.0 - Getting it up and running.
