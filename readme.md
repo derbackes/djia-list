@@ -8,7 +8,7 @@ That's it. It will return a JS object formatted:
 {ticker: 'GOOG'},  
 {ticker: 'MMM'}]  
 
-But with all 500 ticker symbols
+But with all 30 Dow ticker symbols
 
 Example
 ========
