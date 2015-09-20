@@ -13,21 +13,25 @@ module.exports = {
 
     // Go grab the webpage
     var returnList = request(url, function(err, resp, body){
-      // The array of stocks
-      var stockList = [];
+      if (!err && resp.statusCode == 200) {
+        // The array of stocks
+        var stockList = [];
 
-      // Get cheerio started
-      $ = cheerio.load(body);
-      // Sep, 2015 - There are two tables on the page with data
-      $('wikitable sortable, tr td:nth-child(3)').each(function(i, element) {
-        // There is only one sortable table on the page right now
-        var data = {
-          ticker: $(this).text()
-        };
-        stockList.push(data);
-      });
-      //console.log(stockList);
-      callback(stockList);
+        // Get cheerio started
+        $ = cheerio.load(body);
+        // Sep, 2015 - There are two tables on the page with data
+        $('wikitable sortable, tr td:nth-child(3)').each(function(i, element) {
+          // There is only one sortable table on the page right now
+          var data = {
+            ticker: $(this).text()
+          };
+          stockList.push(data);
+        });
+        //console.log(stockList);
+        callback(stockList);
+      } else {
+        callback(null, err);
+      }
     });
   },
 
